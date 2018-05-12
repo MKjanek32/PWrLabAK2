@@ -1,0 +1,27 @@
+Architektura komputerów 2 - Laboratorium 2
+
+1. Jakie było zadanie?
+Napisać program sortujący ciąg liczb w postaci binarnej wczytany ze standardowego wejścia w formacie:
+nmxxx...xxx...
+
+n - ilość liczb
+m - długość liczb
+x - m poszczególnych bajtów każdej z n liczb
+
+2. Co program robi?
+Program wczytuje ciąg znaków ze standardowego wejścia i wykonuje sortowanie bąbelkowe wczytanych liczb, wynik zwraca na standardowe wyjście w dokładnie takim samym formacie.
+
+3. Czego program nie robi?
+Program nie sprawdza poprawności formatu wczytanych danych.
+
+4. Jak testować?
+Na standardowe wejście podać ciąg liczb do posortowania w postaci binarnej w opisanym formacie (po uruchomieniu programu lub przez potok), ze standardowego wyjścia odczytać posortowane liczby. Do wyświetlenia wyniku można wykorzystać program hexdump.
+
+5. Budowa programu.
+Do wczytania ciągu bajtów ze standardowego wejścia program wykorzysuje funkcję systemową READ. Dane zapisywane są do bufora o rozmiarze 66000 bajtów.
+W pętli sortujacej do adresowania liczb w buforze wykorzystywane są rejestry esi i edi. Do indeksowania pętli używany jest rejestr ecx. Liczba kroków algorytmu sortującego, ze względu na stosunkowo rzadką konieczność dostępu przechowywana jest w pamięci RAM, a w razie potrzeby ładowana do rejestru ebx- dzięki temu podczas wykonywania kolejnych kroków algorytmu, zapewniona jest konieczna ilość wolnych rejestrów.
+Porównywanie i zamiana miejscami dwóch liczb odbywa się bajt po bajcie, z wykorzystaniem rejestru edx jako indeks. Przy zamianie używany jest pomocniczy bufor o rozmiarze 256 bajtów.
+Po zakończeniu sortowania, gotowy ciąg danych zapisywany jest na standardowe wyjście za pomocą funkcji systemowej WRITE, długość danych jest obliczana na podstawie dwóch pierwszych bajtów.
+
+Jan Potocki
+Jelenia Góra, 24 marca 2017

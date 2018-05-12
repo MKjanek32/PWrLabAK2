@@ -1,0 +1,23 @@
+Architektura komputerów 2 - Laboratorium 1
+
+1. Jakie było zadanie?
+Napisać program zamieniający w ciągu znaków wczytanym ze standardowego wejścia:
+-każdą małą literę na kolejną małą literę z alfabetu (np. a->b, z->a)
+-każdą dużą literę na kolejną dużą literę z alfabetu (np. A->B, Z->A)
+-każdą cyfrę na kolejną cyfrę z alfabetu (np. 0->1, 9->0)
+a każdy inny znak pozostawiający bez zmian.
+
+2. Co program robi?
+Program wykonuje wszystko, co zostało określone w zadaniu.
+
+3. Czego program nie robi?
+Program nie obsługuje ciągów dłuższych niż 80 znaków (standardowy rozmiar konsoli uniksowej).
+
+4. Jak testować?
+Na standardowe wejście podać ciąg znaków do zamiany (po uruchomieniu programu lub przez potok), ze standardowego wyjścia odczytać ciąg po zamianie.
+
+5. Budowa programu.
+Program wczytuje ciąg znaków ze standardowego wejścia za pomocą funkcji systemowej READ do bufora, następnie wykonuje zamianę znaków wykorzystując ten sam bufor i jego zawartość wypisuje na standardowe wyjście używając funkcji systemowej WRITE. Po zakończeniu działania program wykonuje funkcję systemową EXIT bez określenia kodu błędu.
+
+Jan Potocki
+Wrocław, 9 marca 2017

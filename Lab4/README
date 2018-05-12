@@ -1,0 +1,25 @@
+Architektura komputerów 2 - Laboratorium 4
+
+1. Jakie było zadanie?
+Napisać w C program obliczający całkę z funkcji 1/x w określonych granicach, wykorzystując określoną liczbę przedziałów. Wynik obliczyć dla wszystkich możliwych trybów zaokrągleń i precyzji układu x87.
+W asemblerze napisać funkcję wykonującą dzielenie zmiennoprzecinkowe 1/x i funkcję ustawiającą słowo kontrolne (Control Word) układu x87.
+
+2. Co program robi?
+Program wykonuje wszystkie określone w zadaniu operacje.
+
+3. Czego program nie robi?
+Program nie sprawdza poprawności formatu podanych argumentów.
+
+4. Jak testować?
+Jako 1. argumentm program pobiera początek przedziału całkowania (double), jako 2. koniec przedziału całkowania (double), jako 3. liczbę przedziałów (int).
+Wynik obliczeń i słowo kontrolne FPU odczytać ze standardowego wyjścia.
+
+
+5. Budowa programu.
+W pętli for program oblicza wartość całki w każdym z przedziałów jako pole prostokąta o wymiarach:
+szerokość przedziału X wartość funkcji 1/x w środku przedziału
+Wartość 1/x jest liczona jest za pomocą funkcji jedenprzezx napisanej w asemblerze, obliczenia powtarzane są dla 12 trybów pracy FPU ustawianych funkcją set_fpu.
+Wyniki obliczeń zapisywane są na standardowe wyjście za pomocą funkcji printf.
+
+Jan Potocki
+Wrocław, 20 kwietnia 2017

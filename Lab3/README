@@ -1,0 +1,20 @@
+Architektura komputerów 2 - Laboratorium 3
+
+1. Jakie było zadanie?
+Napisać w C program sortujący malejąco tablicę 4-bajtowych liczb naturalnych wczytanych z pliku binarnego i zapisujący rezulat do pliku o takim samym formacie, wykorzystując gotową fukncję sortującą, w której należy wywołać napisaną w asemblerze funkcję porównującą 2 liczby. Wykonać pomiar czasu odczytu, sortowania i zapisu za pomocą rozkazu RDTSC.
+
+2. Co program robi?
+Program wykonuje wszystkie określone w zadaniu operacje.
+
+3. Czego program nie robi?
+Program nie sprawdza poprawności formatu wczytanych danych i podanych argumentów oraz nie obsługuje plików zawierających więcej niż 100000 liczb (ze względu na rozmiar zdefiniowanej tablicy).
+
+4. Jak testować?
+Jako argument programu podać nazwę pliku z liczbami do posortowania. Wynik sortowania zostanie zapisany do pliku "sortowane.bin", a wynik pomiaru czasu na standardowe wyjście.
+
+5. Budowa programu.
+Do wczytania liczb z pliku program wykorzystuje funkcję systemową READ. Następnie wywołana zostaje funkcja sortująca tablicę, wywołująca napisaną w asemblerze funkcję porównującą liczby. Po zakończeniu sortowania zawartość tablicy zapisywana jest do pliku za pomocą funkcji systemowej WRITE.
+Do pomiaru czasu wykorzystana jest napisana w asemblerze funkcja zapisująca wynik rozkazu RDTSC pod podany jako argument adres na zmienną typu unsigned long long int.
+
+Jan Potocki
+Wrocław, 11 kwietnia 2017

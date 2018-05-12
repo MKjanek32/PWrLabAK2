@@ -1,0 +1,23 @@
+Architektura komputerów 2 - Laboratorium 5
+
+1. Jakie było zadanie?
+Wykorzystując kod z poprzednich zajęć napisać w C funkcję obliczającą wartość całki z funkcji 1/x w określonym przedziale. Następnie przepisać tę funkcję na asembler i zoptymalizować ją z wykorzystaniem instrukcji SSE w dwóch wersjach:
+-podwójna precyzja (wolniejsza)
+-pojedyncza precyzja (szybsza)
+Przeprowadzić uśrednione pomiary czasu wykonania wszystkich napisanych wersji funkcji, wykorzystując gotowy kod z katalogu common na repozytorium.
+
+2. Co program robi?
+Program wykonuje wszystkie określone w zadaniu operacje.
+
+3. Czego program nie robi?
+Program nie sprawdza poprawności (i sensowności) podanych argumentów.
+
+4. Jak testować?
+Jako argumenty programu podać kolejno: początek przedziału całkowania, koniec przedziału całkowania, ilość kroków algorytmu. Makefile zawiera przykładowe wywołanie programu.
+
+5. Budowa programu.
+Kod w C składa się z funkcji main, funkcji wykonującej pomiary czasu wykonania funkcji przekazanej jako parametr oraz funkcji implementującej algorytm obliczjący wartość całki. Kod w asemblerze składa się z trzech funkcji, obliczających wartość całki za pomocą instrukcji SSE skalarnie, wektorowo z podwójną precyzją i wektorowo z pojedynczą precyzją. Funkcje te składają się z instrukcji inicjalizujących i kończących (obliczenie szerokości przedziału, przygotowanie akumulatora, załadowanie obliczonego wyniku na stos FPU, itp.) oraz głównej pętli algorytmu, napisanej z wykorzystaniem rozkazu loop.
+W funkcji main wywoływanajest funkcja wykonująca pomiary kolejno dla każdej implementacji algorytmu.
+
+Jan Potocki
+Wrocław, 23 maja 2017
