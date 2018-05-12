@@ -31,6 +31,8 @@ int main(int argc, char * argv[])
     eval_integral_function(&integral_sse, from, to, steps);
     printf("\nAssembly SSE vectorized single precision:\n");
     eval_integral_function(&integral_sse_single, from, to, steps);
+    
+    return 0;
 }
 
 double integral(double from, double to, unsigned steps)
